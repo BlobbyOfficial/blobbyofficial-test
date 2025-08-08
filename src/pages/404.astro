@@ -1,0 +1,46 @@
+---
+layout: ../layouts/DefaultLayout.astro
+title: "Page Not Found"
+description: "Oops! This page doesn't exist."
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 – Page Not Found</title>
+  </head>
+  <body class="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen flex flex-col items-center justify-center text-center p-6">
+    <div class="animate-fade-in-up space-y-4">
+      <h1 class="text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-500">
+        404
+      </h1>
+      <h2 class="text-2xl sm:text-3xl font-semibold">Oops! That page doesn’t exist.</h2>
+      <p class="text-gray-400 max-w-md mx-auto">
+        The page you're looking for has vanished into the void. Try checking the URL, or head back to the homepage.
+      </p>
+      <a
+        href="/"
+        class="inline-block mt-6 px-6 py-3 rounded-xl bg-white text-black font-semibold shadow-lg hover:bg-gray-100 transition"
+      >
+        Take Me Home
+      </a>
+    </div>
+
+    <style>
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-up {
+        animation: fade-in-up 0.6s ease-out both;
+      }
+    </style>
+  </body>
+</html>

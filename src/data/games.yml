@@ -1,0 +1,28 @@
+// Sample data file for games
+
+export default [
+  {
+    title: "Blobby Simulator",
+    version: "v2.40",
+    description: "A wacky Roblox simulator where everything is Blobby! Raise pets, unlock worlds, collect blobs, and much more.",
+    url: "https://www.roblox.com/games/89229249916856/Blobby-Simulator-v2-40",
+    image: "/assets/games/blobby-simulator.png",
+    tags: ["Roblox", "Simulator", "Funny", "Pets"]
+  },
+  {
+    title: "Blobstacle Course",
+    version: "Beta",
+    description: "An experimental obstacle course game made entirely of blobs. Test your skills and patience!",
+    url: "https://www.roblox.com/games/1234567890/Blobstacle-Course",
+    image: "/assets/games/blobstacle-course.png",
+    tags: ["Roblox", "Obby", "Challenging"]
+  },
+  {
+    title: "Blobby Tycoon",
+    version: "Coming Soon",
+    description: "Start your own blob-based business empire. Automate, scale, and blobify everything.",
+    url: "https://www.roblox.com/games/1122334455/Blobby-Tycoon",
+    image: "/assets/games/blobby-tycoon.png",
+    tags: ["Roblox", "Tycoon", "Idle"]
+  }
+];

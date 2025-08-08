@@ -1,0 +1,47 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+import { Astro } from 'astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<DefaultLayout title={frontmatter.title} description={frontmatter.description}>
+  <main class="relative min-h-screen bg-gradient-to-b from-black via-gray-950 to-black text-white overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none select-none opacity-5">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <filter id="noiseFilter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+      </svg>
+    </div>
+
+    <article class="relative z-10 px-6 py-24 md:py-32 max-w-3xl mx-auto animate-fade-in-up">
+      <h1 class="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 bg-clip-text text-transparent mb-6">
+        {frontmatter.title}
+      </h1>
+      <p class="text-gray-400 text-sm mb-8">{frontmatter.date}</p>
+      <slot />
+    </article>
+
+    <footer class="relative z-10 mt-20 text-sm text-gray-500 text-center pb-6">
+      &copy; {new Date().getFullYear()} BlobbyOfficial. All rights reserved.
+    </footer>
+
+    <style>
+      @keyframes fade-in-up {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out both;
+      }
+    </style>
+  </main>
+</DefaultLayout>
