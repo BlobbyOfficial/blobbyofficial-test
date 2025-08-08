@@ -1,14 +1,27 @@
 ---
-import DefaultLayout from '../../layouts/DefaultLayout.astro';
-import { Astro } from 'astro';
-
-const { frontmatter } = Astro.props;
+title: "Example Blog Post Title"
+description: "A short description for SEO and previews."
+date: "2025-08-08"
 ---
 
-<DefaultLayout title={frontmatter.title} description={frontmatter.description}>
+<script lang="ts" context="module">
+  import DefaultLayout from '../../layouts/DefaultLayout.astro';
+</script>
+
+<script>
+  export interface Props {
+    frontmatter: {
+      title: string;
+      description: string;
+      date: string;
+    };
+  }
+</script>
+
+<DefaultLayout title={Astro.frontmatter.title} description={Astro.frontmatter.description}>
   <main class="relative min-h-screen bg-gradient-to-b from-black via-gray-950 to-black text-white overflow-hidden">
     <div class="absolute inset-0 pointer-events-none select-none opacity-5">
-      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
         <filter id="noiseFilter">
           <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" />
         </filter>
@@ -18,9 +31,9 @@ const { frontmatter } = Astro.props;
 
     <article class="relative z-10 px-6 py-24 md:py-32 max-w-3xl mx-auto animate-fade-in-up">
       <h1 class="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-yellow-400 via-pink-500 to-red-500 bg-clip-text text-transparent mb-6">
-        {frontmatter.title}
+        {Astro.frontmatter.title}
       </h1>
-      <p class="text-gray-400 text-sm mb-8">{frontmatter.date}</p>
+      <p class="text-gray-400 text-sm mb-8">{Astro.frontmatter.date}</p>
       <slot />
     </article>
 
